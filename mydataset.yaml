@@ -1,0 +1,22 @@
+path: C:\Users\chaum\Documents\Source\bkitc\1232456y\yolo_env\mydataset1
+train: images/train
+val: images/val
+test: images/test
+
+nc: 1
+names:
+  - steel
+# Train command:
+# python train.py --img 640 --batch 16 --epochs 100 --data mydata.yaml --weights yolov5s.pt --rect
+
+# Inference command:
+# python detect.py --weights runs\train\exp7\weights\best.pt --source "C:\Users\chaum\Videos\Training\1" --img 640 --conf 0.5
+# Inference command:
+# python detect.py --weights runs\train\exp7\weights\best.pt --source "C:\Users\chaum\Videos\Training\1" --img 320 --conf 0.5
+
+# python detect.py --weights runs\train\exp7\weights\best.pt --source "C:\Users\chaum\Videos\Training\1" --img 640 --conf 0.5
+
+
+# "C:\Users\chaum\Videos\count steel\lv_0_20231110151131_1.mp4"
+
+# yolo detect predict model=runs/detect/train/weights/best.pt source="C:\Users\chaum\Videos\count steel\lv_0_20231110151131_1.mp4" show=True

@@ -1,0 +1,11 @@
+path: /content/yolo_training/count_steel  # Thêm dấu / ở đầu
+train: images/train
+val: images/val
+test: images/test
+
+nc: 1
+names:
+  - steelbar
+
+with open("/content/dataset.yaml", "w") as f:
+  f.write(yaml_content)

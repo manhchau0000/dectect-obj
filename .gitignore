@@ -1,0 +1,15 @@
+
+Include/
+Lib/
+Scripts/
+share/
+pyvenv.cfg
+
+*.csv
+
+.DS_Store
+__pycache__/
+steel_output_v5_fast.mp4
+mydataset2.zip
+mydataset3.zip
+lv_0_20231110153119_1.mp4
