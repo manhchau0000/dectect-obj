@@ -1,7 +1,7 @@
 import cv2
 from ultralytics import solutions
 
-SOURCE     = r"C:\Users\chaum\Videos\count steel\video001.mp4"
+SOURCE     = r"C:\Users\chaum\Videos\count steel\video004.mp4"
 MODEL_PATH = r"steel_model_v112.pt"
 ORIGINAL_REGION = [(180, 509), (1749, 496), (1749, 912), (163, 886)]
 RESIZE_WIDTH = 640
@@ -62,7 +62,7 @@ while cap.isOpened():
                     2)         
 
     writer.write(annotated_im)
-    cv2.imshow("Fast YOLO Counter", annotated_im)
+    cv2.imshow("press q to exit", annotated_im)
     if cv2.waitKey(1) & 0xFF == ord("q"):
         break
 
