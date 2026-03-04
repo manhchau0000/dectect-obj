@@ -34,8 +34,7 @@ counter = solutions.ObjectCounter(
     show_conf=False,     
     show_labels=True,   
     show_in=False,       
-    show_out=False,   
-    device="0",   
+    show_out=False, 
 )
 
 while cap.isOpened():
