@@ -6,9 +6,7 @@ git clone <URL_REPOSITORY>
 cd <TÊN_FOLDER_PROJECT>
 ```
  
-Hoặc tải .zip , giản nén , mở ternimal trong thư mục 
-![alt text](image.png)
-
+Hoặc tải .zip , giản nén , mở ternimal trong thư mục đã giải nén.
 ## Bước 2: Cài đặt Python
 1. Tải Python 3.10.11 từ https://www.python.org/ftp/python/3.10.11/python-3.10.11-amd64.exe
 2. Khi cài, **NHỚ TICK** "Add Python to PATH"
@@ -29,7 +27,7 @@ pip install -r requirements.txt
 ```cmd
 pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
 ```
-
+![alt text](image-1.png)
 ## Bước 5: Tải model file (nếu chưa có)
 Model file `steel_model_v112.pt` .
 
@@ -38,8 +36,7 @@ Model file `steel_model_v112.pt` .
 Trong file `count_v5.py`, sửa lại URL camera RTSP:
 ```python
 SOURCE = "rtsp://admin:admin@192.168.0.100/..."
-
-
+```
 Trong file `count_v3.py`, sửa lại Đường dẫn video:
 ```python
 SOURCE     = r"C:\Users\chaum\Videos\count steel\video001.mp4"
@@ -80,28 +77,3 @@ python -c "import cv2; import ultralytics; print('OK')"
 
 Nếu in ra "OK" là đã cài đặt thành công!
 
----
-
-## Lưu ý khi làm việc với Git:
-
-### Files không nên commit (đã có trong .gitignore):
-- `yolo_env/` - Virtual environment
-- `*.pt` (trừ model nhỏ < 10MB) - Model files quá lớn
-- `runs/` - Kết quả training
-- `*.mp4`, `*.avi` - Video outputs
-- `*.csv` - Log files
-- `__pycache__/`, `*.pyc` - Python cache
-
-### Files nên commit:
-- `*.py` - Code Python
-- `*.yaml` - Config files
-- `requirements.txt` - Dependencies
-- `README.md`, `SETUP_GUIDE.md` - Documentation
-- `.gitignore` - Git ignore rules
-
-### Cập nhật code mới từ Git:
-```cmd
-git pull origin main
-# Nếu có thêm dependencies mới:
-pip install -r requirements.txt
-```
