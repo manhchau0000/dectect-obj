@@ -1,10 +1,13 @@
-# Hướng dẫn cài đặt project YOLO Steel Counter
+# Hướng dẫn cài đặt project 
 
 ## Bước 1: Clone project từ Git
 ```cmd
 git clone <URL_REPOSITORY>
 cd <TÊN_FOLDER_PROJECT>
 ```
+ 
+Hoặc tải .zip , giản nén , mở ternimal trong thư mục 
+![alt text](image.png)
 
 ## Bước 2: Cài đặt Python
 1. Tải Python 3.10.11 từ https://www.python.org/ftp/python/3.10.11/python-3.10.11-amd64.exe
@@ -28,29 +31,18 @@ pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
 ```
 
 ## Bước 5: Tải model file (nếu chưa có)
-Model file `steel_model_v112.pt` không được đưa lên Git vì quá lớn (~22MB).
+Model file `steel_model_v112.pt` .
 
-**Cách 1:** Tải từ Google Drive / Dropbox / OneDrive
-```cmd
-# Đặt file vào thư mục gốc project
-# Ví dụ: C:\path\to\project\steel_model_v112.pt
-```
-
-**Cách 2:** Train model mới (nếu có dataset)
-```cmd
-python train.py
-```
-
-**Cách 3:** Dùng model YOLO mặc định để test
-```python
-# Trong count_v5.py, tạm thời thay:
-MODEL_PATH = "yolov8n.pt"  # Model nhỏ để test
-```
 
 ## Bước 6: Chỉnh sửa config
 Trong file `count_v5.py`, sửa lại URL camera RTSP:
 ```python
 SOURCE = "rtsp://admin:admin@192.168.0.100/..."
+
+
+Trong file `count_v3.py`, sửa lại Đường dẫn video:
+```python
+SOURCE     = r"C:\Users\chaum\Videos\count steel\video001.mp4"
 ```
 
 ## Bước 7: Chạy thử
