@@ -1,0 +1,17 @@
+# Core dependencies for YOLO Steel Counting Project
+# Python 3.10.11 required
+
+ultralytics==8.4.17
+opencv-python==4.13.0.92
+numpy==2.2.6
+scipy==1.15.3
+torch==2.10.0
+torchvision==0.25.0
+pillow==12.1.1
+pyyaml==6.0.3
+matplotlib==3.10.8
+
+# Additional dependencies
+psutil==7.2.2
+shapely==2.1.2
+lap==0.5.13

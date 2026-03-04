@@ -1,8 +1,10 @@
 import cv2
+import os
 from ultralytics import solutions
 
-# SOURCE     = r"C:\Users\chaum\Videos\Training\1\lv_0_20231110153119_1.mp4"
-SOURCE     = r"C:\Users\chaum\Videos\count steel\video004.mp4"
+os.environ["OPENCV_FFMPEG_CAPTURE_OPTIONS"] = "rtsp_transport;tcp|nobuffer|probesize;32|analyzeduration;0"
+
+SOURCE = "rtsp://admin:bkict@2025@192.168.2.11:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif"
 MODEL_PATH = r"steel_model_v112.pt"
 
 ORIGINAL_REGION = [(420, 307), (969, 307), (969, 452), (420, 452)]
@@ -11,7 +13,7 @@ ORIGINAL_REGION = [(420, 307), (969, 307), (969, 452), (420, 452)]
 
 RESIZE_WIDTH = 640  
 
-cap = cv2.VideoCapture(SOURCE)
+cap = cv2.VideoCapture(SOURCE, cv2.CAP_FFMPEG)
 assert cap.isOpened(), "Error reading video file"
 
 w_orig = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
@@ -32,10 +34,12 @@ counter = solutions.ObjectCounter(
     region=NEW_REGION,
     show=False,
     line_width=2,
+    show_conf=False,
+    show_labels=False,
     conf=0.3,  # độ tin cậy tối thiểu 
     iou=0.5,     # Tăng IOU để tracker bám đuôi tốt hơn
     max_hist=50, #lưu lịch sử tracking lâu hơn để tránh mất ID khi đối tượng tạm thời biến mất hoặc bị che khuất,
-      tracker="custom_botsort.yaml",   
+    tracker="custom_botsort.yaml",   
 )
 
 while cap.isOpened():

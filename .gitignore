@@ -1,15 +1,58 @@
-
+# Virtual Environment
 Include/
 Lib/
 Scripts/
 share/
 pyvenv.cfg
+yolo_env/
+venv/
+env/
 
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# YOLO Model files (quá lớn)
+*.pt
+!yolov8n.pt
+*.onnx
+*.engine
+*.tflite
+
+# Training outputs
+runs/
+weights/
+
+# Video files
+*.mp4
+*.avi
+*.mov
+*.mkv
+steel_output_v5_fast.mp4
+lv_0_20231110153119_1.mp4
+
+# CSV logs
 *.csv
 
+# Dataset (nếu lớn)
+mydataset1/
+mydataset2/
+mydataset3/
+*.zip
+
+# OS files
 .DS_Store
-__pycache__/
-steel_output_v5_fast.mp4
-mydataset2.zip
-mydataset3.zip
-lv_0_20231110153119_1.mp4
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Temporary
+*.tmp
+*.bak
+New folder/

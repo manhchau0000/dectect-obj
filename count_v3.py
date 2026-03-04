@@ -1,7 +1,7 @@
 import cv2
 from ultralytics import solutions
 
-SOURCE     = r"lv_0_20231110153119_1.mp4"
+SOURCE     = r"C:\Users\chaum\Videos\count steel\video001.mp4"
 MODEL_PATH = r"steel_model_v112.pt"
 ORIGINAL_REGION = [(180, 509), (1749, 496), (1749, 912), (163, 886)]
 RESIZE_WIDTH = 640
@@ -19,7 +19,7 @@ h_new  = int(h_orig * scale)
 
 NEW_REGION = [(int(x * scale), int(y * scale)) for (x, y) in ORIGINAL_REGION]
 
-writer = cv2.VideoWriter("steel_output_v5_fast.mp4",
+writer = cv2.VideoWriter("result count v3.mp4",
                          cv2.VideoWriter_fourcc(*"mp4v"), fps, (w_new, h_new))
 
 counter = solutions.ObjectCounter(
@@ -30,7 +30,12 @@ counter = solutions.ObjectCounter(
     conf=0.3,
     iou=0.5,
     max_hist=50,
-    tracker="custom_botsort.yaml",   
+    tracker="custom_botsort.yaml",  
+    show_conf=False,     
+    show_labels=True,   
+    show_in=False,       
+    show_out=False,   
+    device="0",   
 )
 
 while cap.isOpened():
@@ -48,6 +53,14 @@ while cap.isOpened():
 
     cv2.putText(annotated_im, f"TOTAL: {total}", (w_new // 2 - 100, 40),
                 cv2.FONT_HERSHEY_DUPLEX, 0.8, (0, 255, 0), 2)
+
+    cv2.putText(annotated_im,
+                    "BKICT", 
+                    (20, h_new - 30), 
+                    cv2.FONT_HERSHEY_SIMPLEX,
+                    0.8,           
+                    (255, 255, 255), 
+                    2)         
 
     writer.write(annotated_im)
     cv2.imshow("Fast YOLO Counter", annotated_im)
